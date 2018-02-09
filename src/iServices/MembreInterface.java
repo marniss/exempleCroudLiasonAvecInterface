@@ -5,7 +5,7 @@
  */
 package iServices;
 
-import entites.membre;
+import entites.Membre;
 import java.sql.SQLException;
 
 
@@ -14,16 +14,16 @@ import java.sql.SQLException;
  *
  * @author houssem
  */
-public interface membreInterface {
+public interface MembreInterface {
     
     
-   public void ajouterMembre(membre m)throws SQLException ;
+   public void ajouterMembre(Membre m)throws SQLException ;
    
    
    public void supprimerMembre(int id)throws SQLException ;
    
    
-   public void modifierMembre(int id, membre m)throws SQLException ;
+   public void modifierMembre(int id, Membre m)throws SQLException ;
 
     
 }

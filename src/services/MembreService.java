@@ -8,20 +8,19 @@ package services;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import singleton.DataSource;
-import entites.membre;
-import iServices.membreInterface;
+import entites.Membre;
+import iServices.MembreInterface;
 
 /**
  *
  * @author houssem
  */
-public class membreService implements membreInterface {
+public class MembreService implements MembreInterface {
 
     private Statement ste;
     Connection conn = DataSource.getInstance().getConnection();
 
-    public membreService() {
+    public MembreService() {
         try {
             ste = conn.createStatement();
 
@@ -30,7 +29,7 @@ public class membreService implements membreInterface {
         }
     }
 @Override
-    public void ajouterMembre(membre m) throws SQLException {
+    public void ajouterMembre(Membre m) throws SQLException {
         String req = "insert into membre(nom,prenom,age,adresse,sexe, num_tel,type)values('" + m.getNom() + "','" + m.getPrenom() + "'," + m.getAge() + ",'" + m.getAdresse() + "','" + m.getSexe() + "'," + m.getTel() + ",'" + m.getType() + "') ";
 
         ste.executeUpdate(req);
@@ -43,7 +42,7 @@ public class membreService implements membreInterface {
         ste.executeUpdate(req);
     }
 @Override
-    public void modifierMembre(int id, membre m) throws SQLException {
+    public void modifierMembre(int id, Membre m) throws SQLException {
 
         String req = "UPDATE table SET nom = '" + m.getNom() + "',prenom='" + m.getPrenom() + "',age=" + m.getAge() + ",adresse='" + m.getAdresse() + "',sexe='" + m.getSexe() + "',num_tel=" + m.getTel() + ",type=" + m.getPrenom() + " WHERE id_membre=" + id;
         ste.executeUpdate(req);

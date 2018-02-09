@@ -10,18 +10,18 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-import entites.membre;
+import entites.Membre;
 import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import services.membreService;
+import services.MembreService;
 
 /**
  * FXML Controller class
  *
  * @author houssem
  */
-public class MembreInterfaceController implements Initializable {
+public class MembreIHMController implements Initializable {
 
     @FXML
     private TextField nom;
@@ -46,10 +46,10 @@ public class MembreInterfaceController implements Initializable {
 
     @FXML
     private void ajouter(ActionEvent event) throws SQLException {
-        membre m = new membre(nom.getText(), prenom.getText(), 0, "", "", 0, 0);
+        Membre m = new Membre(nom.getText(), prenom.getText(), 0, "", "", 0, 0);
         
-        membreService aService;
-        aService = new membreService();
+        MembreService aService;
+        aService = new MembreService();
         aService.ajouterMembre(m);
     }
     
